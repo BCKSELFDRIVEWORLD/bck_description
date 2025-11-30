@@ -1,0 +1,201 @@
+<?xml version="1.0" ?>
+<robot name="guzergah_agv" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find bck_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find bck_description)/urdf/guzergah_agv.trans" />
+
+<link name="base_footprint"/>
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint> 
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.029038187631651412 4.602592211716378e-05 0.1717335537030045" rpy="0 0 0"/>
+    <mass value="14.804827109635726"/>
+    <inertia ixx="0.454067" iyy="0.823719" izz="0.778336" ixy="-0.000231" iyz="-1e-05" ixz="-0.00441"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="dis_combine_v1_1">
+  <inertial>
+    <origin xyz="0.2764570619720478 -0.0008414747074660829 -0.1257300672035736" rpy="0 0 0"/>
+    <mass value="19.187851413751936"/>
+    <inertia ixx="0.94885" iyy="2.04799" izz="2.350678" ixy="-0.00704" iyz="0.003331" ixz="-0.019811"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.24 0.0 -0.385" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/dis_combine_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="0.24 0.0 -0.385" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/dis_combine_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="kamera_tutucu_1">
+  <inertial>
+    <origin xyz="0.003385676657239378 2.3752971708486245e-14 0.15697965326661095" rpy="0 0 0"/>
+    <mass value="0.07523751041985093"/>
+    <inertia ixx="1.2e-05" iyy="7e-06" izz="7e-06" ixy="-0.0" iyz="0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.3985 0.0 -0.014363" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/kamera_tutucu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.3985 0.0 -0.014363" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/kamera_tutucu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="TekerSag_1">
+  <inertial>
+    <origin xyz="-5.082464339177697e-15 -0.03600000000000167 -2.300937218535637e-14" rpy="0 0 0"/>
+    <mass value="0.6081784085343237"/>
+    <inertia ixx="0.00207" iyy="0.003908" izz="0.00207" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.1675 -0.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/TekerSag_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="orange"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.1675 -0.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/TekerSag_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="TekerSol_1">
+  <inertial>
+    <origin xyz="2.1297945802268406e-14 0.03599999999999898 -1.942890293094024e-16" rpy="0 0 0"/>
+    <mass value="0.6081784085343248"/>
+    <inertia ixx="0.00207" iyy="0.003908" izz="0.00207" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.1675 -0.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/TekerSol_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="orange"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.1675 -0.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/TekerSol_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-0.0016067454834169381 -2.980464184150879e-05 0.010665743146427403" rpy="0 0 0"/>
+    <mass value="0.6465110199352954"/>
+    <inertia ixx="0.000234" iyy="0.000214" izz="0.000394" ixy="0.0" iyz="0.0" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.343626 -0.000924 -0.1976" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.343626 -0.000924 -0.1976" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="0.0013519069482649249 -0.0003892293542797991 -0.00033724264136414384" rpy="0 0 0"/>
+    <mass value="0.0067428696508767365"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.4055 -0.0 -0.169363" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.4055 -0.0 -0.169363" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bck_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+
+<joint name="base_link_arti_dis" type="fixed">
+  <origin xyz="-0.24 0.0 0.385" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="dis_combine_v1_1"/>
+</joint>
+
+<joint name="kamera_tutucu" type="fixed">
+  <origin xyz="0.6385 0.0 -0.370637" rpy="0 0 0"/>
+  <parent link="dis_combine_v1_1"/>
+  <child link="kamera_tutucu_1"/>
+</joint>
+
+<joint name="sag_teker_vel_motor" type="continuous">
+  <origin xyz="0.0 -0.1675 0.1" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="TekerSag_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="sol_teker_vel_motor" type="continuous">
+  <origin xyz="0.0 0.1675 0.1" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="TekerSol_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="lidar" type="fixed">
+  <origin xyz="0.343626 0.000924 0.1976" rpy="0 0 3.14"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="kamera" type="fixed">
+  <origin xyz="0.007 0.0 0.155" rpy="0 0.29 0"/>
+  <parent link="kamera_tutucu_1"/>
+  <child link="camera_1"/>
+</joint>
+
+</robot>

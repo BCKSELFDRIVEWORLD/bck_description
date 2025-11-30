@@ -1,0 +1,139 @@
+<?xml version="1.0" ?>
+<robot name="bck_agv" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<!-- <gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/bck_agv</robotNamespace>
+    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+  </plugin>
+</gazebo> -->
+
+<!-- <gazebo>
+  <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <odometryRate>20.0</odometryRate>
+    <robotBaseFrame>base_footprint</robotBaseFrame>
+    <cmdTimeout>-1.0</cmdTimeout>
+  </plugin>
+</gazebo> -->
+
+<gazebo reference="base_link">
+  <material>Gazebo/White</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="dis_combine_v1_1">
+  <material>Gazebo/Blue</material>
+  <mu1>1500</mu1>
+  <mu2>1500</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="kamera_tutucu_1">
+  <material>Gazebo/Black</material>
+  <mu1>1500</mu1>
+  <mu2>1500</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="TekerSag_1">
+  <material>Gazebo/Orange</material>
+  <mu1>1500</mu1>
+  <mu2>1500</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="TekerSol_1">
+  <material>Gazebo/Orange</material>
+  <mu1>1500</mu1>
+  <mu2>1500</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="lidar_1">
+  <material>Gazebo/Green</material>
+  <mu1>1500</mu1>
+  <mu2>1500</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<!-- <gazebo reference="camera_1">
+  <material>Gazebo/Green</material>
+  <mu1>1500</mu1>
+  <mu2>1500</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo> -->
+
+  <!-- camera -->
+  <!-- <gazebo reference="camera_1">
+    <sensor type="camera" name="camera">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+        <render_engine>ogre2</render_engine>
+        <background_color>0 0 0 0</background_color>
+      </plugin>
+    </sensor>
+  </gazebo> -->
+
+  <gazebo>
+    <plugin filename="ignition-gazebo-joint-state-publisher-system" name="ignition::gazebo::systems::JointStatePublisher">
+      <topic>model/bck_agv/joint_state</topic>
+      <joint_name>sag_teker_vel_motor</joint_name>
+      <joint_name>sol_teker_vel_motor</joint_name>
+    </plugin>
+  </gazebo>
+
+<gazebo reference="lidar_1">
+    <sensor type="ray" name="lds_lfcd_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <!--<resolution>0.017453</resolution> -->
+            <min_angle>6.28</min_angle>
+            <max_angle>0</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.12</min>
+          <max>8.0</max>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <!-- Ignition Gazebo Lidar Plugin -->
+      <!-- <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+        <render_engine>ogre2</render_engine>
+      </plugin> -->
+    </sensor>
+  </gazebo>
+
+</robot>
