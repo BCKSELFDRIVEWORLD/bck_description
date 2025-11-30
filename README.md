@@ -1,4 +1,4 @@
-# bck_description — how to view the robot in RViz and Gazebo
+# bck_description 
 
 Run Gazebo and spawn the robot:
 
