@@ -99,7 +99,7 @@
   </collision>
 </link>
 
-<link name="lidar_1">
+<!-- <link name="lidar_1">
   <inertial>
     <origin xyz="-0.0016067454834169381 -2.980464184150879e-05 0.010665743146427403" rpy="0 0 0"/>
     <mass value="0.6465110199352954"/>
@@ -118,7 +118,7 @@
       <mesh filename="package://bck_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
-</link>
+</link> -->
 
 
 <joint name="base_link_arti_dis" type="fixed">
@@ -131,7 +131,7 @@
   <origin xyz="0.0 -0.1675 0.1" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="TekerSag_1"/>
-  <axis xyz="0.0 1.0 -0.0"/>
+  <axis xyz="0.0 -1.0 0.0"/>
 </joint>
 
 <joint name="sol_teker_vel_motor" type="continuous">
@@ -141,10 +141,10 @@
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
-<joint name="lidar" type="fixed">
+<!-- <joint name="lidar" type="fixed">
   <origin xyz="0.343626 0.000924 0.1976" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="lidar_1"/>
-</joint>
+</joint> -->
 
 </robot>
