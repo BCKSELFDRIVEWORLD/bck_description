@@ -64,6 +64,8 @@ def generate_launch_description():
             '/model/bck_agv/pose_static@tf2_msgs/msg/TFMessage[ignition.msgs.Pose_V',
             # CMD Vel (ROS2 -> Ignition)
             '/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist',
+            # Odometry (Ignition -> ROS2)
+            '/odom@nav_msgs/msg/Odometry[ignition.msgs.Odometry',
             # Lidar Scan (Ignition -> ROS2)
             '/scan@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan',
             # Joint States (Ignition -> ROS2)

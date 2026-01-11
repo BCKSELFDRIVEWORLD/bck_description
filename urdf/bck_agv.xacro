@@ -131,7 +131,7 @@
   <origin xyz="0.0 -0.1675 0.1" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="TekerSag_1"/>
-  <axis xyz="0.0 -1.0 0.0"/>
+  <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
 <joint name="sol_teker_vel_motor" type="continuous">
