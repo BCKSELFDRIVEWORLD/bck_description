@@ -58,27 +58,20 @@ def generate_launch_description():
         arguments=[
             # Clock (Ignition -> ROS2)
             '/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock',
-            # TF (Ignition -> ROS2)
-            '/model/bck_agv/pose@tf2_msgs/msg/TFMessage[ignition.msgs.Pose_V',
-            # TF Static (Ignition -> ROS2)
-            '/model/bck_agv/pose_static@tf2_msgs/msg/TFMessage[ignition.msgs.Pose_V',
             # CMD Vel (ROS2 -> Ignition)
             '/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist',
             # Odometry (Ignition -> ROS2)
             '/odom@nav_msgs/msg/Odometry[ignition.msgs.Odometry',
+            # TF (Ignition -> ROS2)
+            '/tf@tf2_msgs/msg/TFMessage[ignition.msgs.Pose_V',
             # Lidar Scan (Ignition -> ROS2)
             '/scan@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan',
             # Joint States (Ignition -> ROS2)
             '/model/bck_agv/joint_state@sensor_msgs/msg/JointState[ignition.msgs.Model',
         ],
-        parameters=[{
-            'qos_overrides./tf_static.publisher.durability': 'transient_local',
-        }],
         output='screen',
         remappings=[
             ('/model/bck_agv/joint_state', '/joint_states'),
-            ('/model/bck_agv/pose', '/tf'),
-            ('/model/bck_agv/pose_static', '/tf_static'),
         ]
     )
 

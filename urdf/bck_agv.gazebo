@@ -103,13 +103,16 @@
       name="ignition::gazebo::systems::DiffDrive">
       <left_joint>sol_teker_vel_motor</left_joint>
       <right_joint>sag_teker_vel_motor</right_joint>
-      <wheel_separation>0.335</wheel_separation> <!-- Update this based on your robot -->
-      <wheel_radius>0.1</wheel_radius> <!-- Update this based on your robot -->
+      <wheel_separation>0.335</wheel_separation>
+      <wheel_radius>0.1</wheel_radius>
       <topic>/cmd_vel</topic>
       <odom_publish_frequency>20</odom_publish_frequency>
       <odom_topic>odom</odom_topic>
+      <tf_topic>/tf</tf_topic>
       <frame_id>odom</frame_id>
       <child_frame_id>base_footprint</child_frame_id>
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
     </plugin>
   </gazebo>
 
